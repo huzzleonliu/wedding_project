@@ -1,0 +1,23 @@
+services:
+  frontend:
+    container_name: wedding_frontend
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    network_mode:
+      - host
+
+  backend:
+    container_name: wedding_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    network_mode:
+      - host
+    privleged: true
+    volumes:
+      - /var/run/cups:/var/run/cups:ro
+      - /dev/bus/usb:/dev/bus/usb:ro    # 访问USB设备（如果打印机是USB连接）
+    environment:
+      - CUPS_SERVER=localhost:631
+

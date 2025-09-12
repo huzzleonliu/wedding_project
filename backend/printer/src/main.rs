@@ -8,7 +8,7 @@ async fn main() {
         .route("/invitation", get(print_invitation))
         .route("/print", get(print_code));
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], 8085));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3001));
     println!("Server running at http://{}", addr);
 
     let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
