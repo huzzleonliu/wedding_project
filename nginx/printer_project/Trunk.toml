@@ -1,0 +1,7 @@
+
+[serve]
+addresses = ["0.0.0.0"]  # The address to serve on.
+port = 3000                # The port to serve on.
+
+[tools.tailwind]
+command = "tailwindcss -i ./public/input.css -o ./public/output.css --watch"
