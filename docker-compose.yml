@@ -1,6 +1,7 @@
 services:
   frontend:
     container_name: wedding_frontend
+    platform: linux/arm64
     build:
       context: ./nginx
       dockerfile: Dockerfile
@@ -8,11 +9,12 @@ services:
 
   backend:
     container_name: wedding_backend
+    platform: linux/arm64
     build:
       context: ./backend
       dockerfile: Dockerfile
     network_mode: host
-    privleged: true
+    privileged: true
     volumes:
       - /var/run/cups:/var/run/cups:ro
       - /dev/bus/usb:/dev/bus/usb:ro    # 访问USB设备（如果打印机是USB连接）
