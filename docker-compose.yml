@@ -4,16 +4,14 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    network_mode:
-      - host
+    network_mode: host
 
   backend:
     container_name: wedding_backend
     build:
       context: ./backend
       dockerfile: Dockerfile
-    network_mode:
-      - host
+    network_mode: host
     privleged: true
     volumes:
       - /var/run/cups:/var/run/cups:ro

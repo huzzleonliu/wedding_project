@@ -1,4 +1,5 @@
 FROM rust:latest
+WORKDIR /usr/src/app/backend
 
 # 安装CUPS和必要的工具
 RUN apt-get update && apt-get install -y \
@@ -12,6 +13,6 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 # 构建应用
-RUN cargo build --release
+RUN cargo build --manifest-path ./printer/Cargo.toml --release
 
 CMD ["./printer/target/release/backend"]
