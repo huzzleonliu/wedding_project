@@ -19,7 +19,7 @@ services:
     networks:
       - wedding_network
     ports:
-      - "3000:3000"
+      - "3001:3001"
     privileged: true
     volumes:
       - /var/run/cups:/var/run/cups:ro
@@ -27,3 +27,6 @@ services:
     environment:
       - CUPS_SERVER=localhost:631
 
+networks:
+  wedding_network:
+    driver: bridge
