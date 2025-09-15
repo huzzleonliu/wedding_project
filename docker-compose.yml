@@ -5,7 +5,10 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    network_mode: host
+    networks:
+      - wedding_network
+    ports:
+      - "3000:3000"
 
   backend:
     container_name: wedding_backend
@@ -13,7 +16,10 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    network_mode: host
+    networks:
+      - wedding_network
+    ports:
+      - "3000:3000"
     privileged: true
     volumes:
       - /var/run/cups:/var/run/cups:ro
