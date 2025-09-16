@@ -30,7 +30,7 @@ RUN apt-get update &&\
 
 # # runtime process
 # FROM nginx:latest
-RUN cp -rf /usr/src/app/wedding_project/nginx/printer_project/dist /usr/share/nginx/html
+RUN cp -rf /usr/src/app/wedding_project/nginx/printer_project/dist/* /usr/share/nginx/html/
 #
 RUN rm /etc/nginx/nginx.conf
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
