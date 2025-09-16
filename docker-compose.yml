@@ -1,8 +1,8 @@
-# dev
+# raspberry
 services:
   frontend:
     container_name: wedding_frontend
-    # platform: linux/arm64
+    platform: linux/arm64
     build:
       context: ./nginx
       dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
 
   backend:
     container_name: wedding_backend
-    # platform: linux/arm64
+    platform: linux/arm64
     build:
       context: ./backend
       dockerfile: Dockerfile

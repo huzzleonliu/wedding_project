@@ -25,7 +25,7 @@ RUN apt-get update &&\
   git clone https://github.com/huzzleonliu/wedding_project.git &&\
   cd wedding_project &&\
   git fetch --all &&\
-  git checkout dev
+  git checkout raspberry
 
 
 # # runtime process
