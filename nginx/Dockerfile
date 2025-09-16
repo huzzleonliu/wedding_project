@@ -22,8 +22,10 @@ FROM nginx:latest
 WORKDIR /usr/src/app
 RUN apt-get update &&\
   apt-get install -y git curl &&\
-  git clone https://github.com/huzzleonliu/wedding_project.git #实际用的时候改成仓库地址
-
+  git clone https://github.com/huzzleonliu/wedding_project.git &&\
+  cd wedding_project &&\
+  git fetch --all &&\
+  git checkout dev
 
 
 # # runtime process
