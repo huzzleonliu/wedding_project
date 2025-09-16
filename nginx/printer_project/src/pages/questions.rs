@@ -12,6 +12,8 @@ pub fn Questions() -> impl IntoView {
     let mut rng = rand::thread_rng();
     let q1 = rng.gen_range(0..15);
     let q2 = rng.gen_range(0..15);
+    let address = use_context::<ReadSignal<String>>().expect("no address found");
+
     view! {
         <div class="w-full min-h-screen bg-red-100 text-center text-gray-700 ">
 
@@ -25,9 +27,9 @@ pub fn Questions() -> impl IntoView {
             // </div>
 
             <div>
-            <Submit cover_set=set_cover/>
+            <Submit cover_set=set_cover ipaddr=address/>
             </div>
-            <Print />
+            <Print ipaddr=address/>
 
         </div>
 

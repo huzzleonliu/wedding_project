@@ -2,27 +2,18 @@
 //
 use gloo_net::http::Request;
 use leptos::*;
-use serde_json;
-use web_sys::console;
 
 #[component]
-pub fn Submit(cover_set: WriteSignal<bool>) -> impl IntoView {
+pub fn Submit(cover_set: WriteSignal<bool>, ipaddr: ReadSignal<String>) -> impl IntoView {
+    let ip = ipaddr.get();
+    let request_url = format!("http://{}:3001/print", ip);
     let print = move |_| {
+        let url = request_url.clone();
         spawn_local(async move {
-            // match
-            Request::get("http://10.193.105.135:3001/print")
+            let _ = Request::get(url.as_str())
                 .send()
                 .await
-                .unwrap();
-            // {
-            //     Ok(response) => {
-            //         let text = response.text().await.unwrap_or_else(|_| "Failed to get text".to_string());
-            //         set_text.set(text);
-            //     },
-            //     Err(err) => {
-            //         console::log_1(&format!("Error: {:?}", err).into());
-            //     }
-            // }
+                .expect("Request failed");
         });
 
         cover_set.set(true);
@@ -35,23 +26,17 @@ pub fn Submit(cover_set: WriteSignal<bool>) -> impl IntoView {
 }
 
 #[component]
-pub fn Print() -> impl IntoView {
+pub fn Print(ipaddr: ReadSignal<String>) -> impl IntoView {
+    let ip = ipaddr.get();
+    let request_url = format!("http://{}:3001/invitation", ip);
+
     let print = move |_| {
+        let url = request_url.clone();
         spawn_local(async move {
-            // match
-            Request::get("http://10.193.105.135:3001/invitation")
+            Request::get(url.as_str())
                 .send()
                 .await
-                .unwrap();
-            // {
-            //     Ok(response) => {
-            //         let text = response.text().await.unwrap_or_else(|_| "Failed to get text".to_string());
-            //         set_text.set(text);
-            //     },
-            //     Err(err) => {
-            //         console::log_1(&format!("Error: {:?}", err).into());
-            //     }
-            // }
+                .expect("Request failed");
         });
     };
 
