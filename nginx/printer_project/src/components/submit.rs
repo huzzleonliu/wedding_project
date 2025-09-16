@@ -10,7 +10,7 @@ pub fn Submit(cover_set: WriteSignal<bool>) -> impl IntoView {
     let print = move |_| {
         spawn_local(async move {
             // match
-            Request::get("http://10.193.105.149:3001/print")
+            Request::get("http://10.193.105.135:3001/print")
                 .send()
                 .await
                 .unwrap();
@@ -39,7 +39,7 @@ pub fn Print() -> impl IntoView {
     let print = move |_| {
         spawn_local(async move {
             // match
-            Request::get("http://10.193.105.149:3001/invitation")
+            Request::get("http://10.193.105.135:3001/invitation")
                 .send()
                 .await
                 .unwrap();
