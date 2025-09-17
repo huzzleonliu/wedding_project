@@ -12,8 +12,8 @@
     <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
     
 <script type="module">
-import init, * as bindings from '/printer_project-24ef99ccba221056.js';
-const wasm = await init({ module_or_path: '/printer_project-24ef99ccba221056_bg.wasm' });
+import init, * as bindings from '/printer_project-3df6eb9db73b1b3e.js';
+const wasm = await init({ module_or_path: '/printer_project-3df6eb9db73b1b3e_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -22,7 +22,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-  <link rel="modulepreload" href="/printer_project-24ef99ccba221056.js" crossorigin="anonymous" integrity="sha384-+phBROoAxA+7C+q+nJbZmDwc85B6yfANu7jYs+JfQg082MYfpzj6nXrEDsT0lc7u"><link rel="preload" href="/printer_project-24ef99ccba221056_bg.wasm" crossorigin="anonymous" integrity="sha384-QMfs4Nk3eL/cZ+a8+mGgoHYd/WCMknJSWs0ZA1VN1LkFtj0lwmOlj92hcr2J8JXn" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/printer_project-3df6eb9db73b1b3e.js" crossorigin="anonymous" integrity="sha384-kg7lWux4uaKBvP8inrZQ7hnwlHqIJr5voayYHcKhQuVLQlGfiXXd0ZnTA7N5FMXS"><link rel="preload" href="/printer_project-3df6eb9db73b1b3e_bg.wasm" crossorigin="anonymous" integrity="sha384-B+8mKzkXxNbzpsY/6MuEOi8+scWaZ6boVS5SKw1CT+p5weGQwT2axrZ/nq8K9eqK" as="fetch" type="application/wasm"></head>
   <body><script>"use strict";
 
 (function () {

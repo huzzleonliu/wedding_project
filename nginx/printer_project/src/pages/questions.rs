@@ -29,7 +29,7 @@ pub fn Questions() -> impl IntoView {
             <div>
             <Submit cover_set=set_cover ipaddr=address/>
             </div>
-            <Print ipaddr=address/>
+            // <Print ipaddr=address/>
 
         </div>
 
